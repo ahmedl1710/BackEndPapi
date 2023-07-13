@@ -1,4 +1,7 @@
 package com.tn.papibackend.service;
 
-public interface IQuizService {
+import com.tn.papibackend.entity.Quizz;
+import com.tn.papibackend.generic.IGenericService;
+
+public interface IQuizService extends IGenericService<Quizz,Long> {
 }

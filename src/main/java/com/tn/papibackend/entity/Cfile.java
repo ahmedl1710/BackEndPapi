@@ -4,7 +4,6 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
-import java.io.File;
 import java.io.Serializable;
 
 @Entity
@@ -20,7 +19,9 @@ public class Cfile implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Setter(AccessLevel.NONE)
     Long id;
-    File filee;
+    String path;
+    @Lob
+    private byte[] fileBlob;
 
     @ManyToOne
     Chapiter chap;

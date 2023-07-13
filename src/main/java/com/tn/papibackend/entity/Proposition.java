@@ -1,37 +1,28 @@
 package com.tn.papibackend.entity;
 
+import com.sun.istack.NotNull;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
-
-
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
-@ToString
+@NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class User implements Serializable {
+public class Proposition implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Setter(AccessLevel.NONE)
     Long id;
-    String name;
-    String email;
-    String password;
-    Long phone;
-    String emaiil;
-    Date naissance;
-    Role role;
+    @NotNull
+    String prop;
+    @NotNull
+    Boolean Value;
 
-    @ManyToMany
-    Set<Interest> interests = new HashSet<>();
-
+    @ManyToOne
+    Question question;
 }

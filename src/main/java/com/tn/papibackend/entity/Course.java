@@ -28,12 +28,6 @@ public class Course implements Serializable {
     @ManyToOne
     Interest interest;
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "course")
-    Set<Quizz> quizzs =new HashSet<>();
-
-    @OneToOne
-    Certification certif;
-
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "course")
     Set<Chapiter> chapiters = new HashSet<>();
 
 }

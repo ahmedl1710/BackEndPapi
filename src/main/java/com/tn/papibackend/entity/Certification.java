@@ -7,6 +7,8 @@ import lombok.experimental.FieldDefaults;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -17,13 +19,16 @@ import java.util.Date;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Certification implements Serializable {
     @Id
-    @GeneratedValue(strategy =GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Setter(AccessLevel.NONE)
     Long id;
     String title;
     String description;
     Date datt;
 
-    @OneToOne
-    Course course;
+
+    @ManyToOne
+    Interest interest;
+
+
 }

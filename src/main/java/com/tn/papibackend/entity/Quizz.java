@@ -5,6 +5,8 @@ import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Entity
@@ -21,8 +23,10 @@ public class Quizz implements Serializable {
     @Setter(AccessLevel.NONE)
     Long id;
     String name;
+    String description;
     Long note;
 
-    @ManyToOne
-    Course course;
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "quizz")
+    Set<Question> questions = new HashSet<>();
+;
 }

@@ -1,4 +1,7 @@
 package com.tn.papibackend.service;
 
-public interface ICertifService {
+import com.tn.papibackend.entity.Certification;
+import com.tn.papibackend.generic.IGenericService;
+
+public interface ICertifService extends IGenericService<Certification,Long> {
 }

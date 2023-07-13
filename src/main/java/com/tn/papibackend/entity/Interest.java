@@ -23,8 +23,10 @@ public class Interest implements Serializable {
     Long id;
     String name;
 
-    @ManyToOne
-    User user;
+    @ManyToMany
+    Set<User> users;
     @OneToMany(mappedBy = "interest",cascade = CascadeType.ALL)
     Set<Course> courses = new HashSet<>();
+    @OneToMany(mappedBy = "interest",cascade = CascadeType.ALL)
+    Set<Certification> certifs= new HashSet<>();
 }

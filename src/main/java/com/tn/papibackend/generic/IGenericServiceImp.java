@@ -9,14 +9,14 @@ import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
-@AllArgsConstructor
-@NoArgsConstructor
+
 public class IGenericServiceImp<T,ID> implements IGenericService<T,ID> {
 
 
 
+    @Autowired
     JpaRepository<T,ID> baseRepository;
-    // @Autowired
+    //
     //private  BaseRepository<T, ID> baseRepository;
 
     @Override

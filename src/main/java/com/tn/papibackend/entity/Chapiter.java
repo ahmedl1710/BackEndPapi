@@ -21,6 +21,7 @@ public class Chapiter implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Setter(AccessLevel.NONE)
     Long id;
+    String title;
     Date datt;
 
     @ManyToOne
