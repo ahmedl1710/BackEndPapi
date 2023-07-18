@@ -7,4 +7,6 @@ import org.springframework.http.ResponseEntity;
 public interface ICourseService extends IGenericService<Course,Long> {
 
     ResponseEntity<?> updateCourse(Long id,Course course);
+    ResponseEntity<?> affectCourseToInterest(Long idCourse,Long idInt);
+
 }

@@ -26,6 +26,9 @@ public class Quizz implements Serializable {
     String description;
     Long note;
 
+    @ManyToOne
+    User user;
+
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "quizz")
     Set<Question> questions = new HashSet<>();
 ;

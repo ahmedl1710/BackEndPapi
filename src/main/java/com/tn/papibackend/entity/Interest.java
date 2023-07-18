@@ -1,5 +1,6 @@
 package com.tn.papibackend.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -24,8 +25,10 @@ public class Interest implements Serializable {
     String name;
 
     @ManyToMany
+    @JsonIgnore
     Set<User> users;
     @OneToMany(mappedBy = "interest",cascade = CascadeType.ALL)
+    @JsonIgnore
     Set<Course> courses = new HashSet<>();
     @OneToMany(mappedBy = "interest",cascade = CascadeType.ALL)
     Set<Certification> certifs= new HashSet<>();

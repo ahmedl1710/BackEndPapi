@@ -1,6 +1,5 @@
 package com.tn.papibackend.service;
 
-import com.tn.papibackend.entity.Interest;
 import com.tn.papibackend.entity.Question;
 import com.tn.papibackend.generic.IGenericService;
 import org.springframework.http.ResponseEntity;

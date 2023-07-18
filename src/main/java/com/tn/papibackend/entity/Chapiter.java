@@ -1,5 +1,6 @@
 package com.tn.papibackend.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -25,6 +26,7 @@ public class Chapiter implements Serializable {
     Date datt;
 
     @ManyToOne
+            @JsonIgnore
     Course course;
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "chap")
     Set<Cfile> files = new HashSet<>();

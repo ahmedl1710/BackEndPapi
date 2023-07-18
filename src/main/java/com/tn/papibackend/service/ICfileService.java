@@ -16,4 +16,6 @@ public interface ICfileService extends IGenericService<Cfile,Long> {
       MessageResponse uploadFile(List<MultipartFile> files, Long idChap);
 
 
+
+
      }

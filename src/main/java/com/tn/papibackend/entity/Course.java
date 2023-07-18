@@ -1,5 +1,6 @@
 package com.tn.papibackend.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -23,9 +24,10 @@ public class Course implements Serializable {
     Long id;
     String title;
     String source;
-    Boolean accesslevel;
+    Boolean accesslevel = true;
 
     @ManyToOne
+
     Interest interest;
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "course")
     Set<Chapiter> chapiters = new HashSet<>();

@@ -36,4 +36,10 @@ public class chapiterController {
     {
         return chapService.delete(id);
     }
+
+    @PutMapping("/affectChap/{idChap}/{idCourse}")
+    private ResponseEntity<?> affectChapToCourse(@PathVariable Long idChap,@PathVariable Long idCourse)
+    {
+        return chapService.affectCChapToCourse(idChap,idCourse);
+    }
 }

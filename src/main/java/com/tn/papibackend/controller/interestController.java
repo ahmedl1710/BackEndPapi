@@ -20,9 +20,9 @@ public class interestController {
             return  interestService.add(interest);
     }
     @PutMapping("/updateInterest/{id}")
-    private ResponseEntity<?> updateInterest(@RequestBody Interest interest,@PathVariable Long id)
+    private ResponseEntity<?> updateInterest(@RequestBody Interest interest, @PathVariable Long id)
     {
-        return interestService.updateInyterest(id,interest);
+        return interestService.updateInyterest(id, interest);
     }
     @GetMapping("/retrieveInterest/{id}")
     private ResponseEntity<?> retrieveinterest(@PathVariable Long id)

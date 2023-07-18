@@ -38,4 +38,9 @@ public class courseController {
     {
         return courseService.delete(id);
     }
+    @PutMapping("/affectCourseInterest/{idCourse}/{idInterest}")
+    private ResponseEntity<?> affectCourseToInterest(@PathVariable Long idCourse,@PathVariable Long idInterest)
+    {
+        return courseService.affectCourseToInterest(idCourse,idInterest);
+    }
 }

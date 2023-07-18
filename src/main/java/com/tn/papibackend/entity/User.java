@@ -27,10 +27,12 @@ public class User implements Serializable {
     String email;
     String password;
     Long phone;
-    String emaiil;
     Date naissance;
     Role role;
 
+
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "user")
+    Set<Quizz> quizzes =new HashSet<>();
     @ManyToMany
     Set<Interest> interests = new HashSet<>();
 

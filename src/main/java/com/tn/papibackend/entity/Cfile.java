@@ -1,5 +1,6 @@
 package com.tn.papibackend.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -21,8 +22,10 @@ public class Cfile implements Serializable {
     Long id;
     String path;
     @Lob
-    private byte[] fileBlob;
+    @JsonIgnore
+    byte[] fileBlob;
 
     @ManyToOne
+            @JsonIgnore
     Chapiter chap;
 }
