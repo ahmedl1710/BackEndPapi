@@ -7,4 +7,5 @@ import org.springframework.http.ResponseEntity;
 public interface IQuestionService extends IGenericService<Question,Long> {
 
     ResponseEntity<?> updateQuestion(Long id, Question quest);
+    ResponseEntity<?> affectQuestionToQuizz(Long idQuest,Long idQuizz);
 }

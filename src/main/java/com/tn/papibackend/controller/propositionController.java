@@ -14,31 +14,41 @@ public class propositionController {
     private IPropService propService;
 
     @PostMapping("/addProp")
-    private ResponseEntity<?> addProp(@RequestBody Proposition prop)
+    public ResponseEntity<?> addProp(@RequestBody Proposition prop)
     {
         return propService.add(prop);
     }
 
+    @PostMapping("/addProp/{idQ}")
+    public ResponseEntity<?> addPropwithQuest(@RequestBody Proposition prop,@PathVariable Long idQ)
+    {
+        propService.affectPropToQuest(prop.getId(),idQ);
+        return propService.add(prop);
+    }
+    @PutMapping("/affectPropToQuest/{idQ}/{idP}")
+    public ResponseEntity<?> affectPropToQuest(@PathVariable Long idQ,@PathVariable Long idP){
+        return propService.affectPropToQuest(idP,idQ);
+    }
     @PutMapping("/updateProp/{id}")
-    private ResponseEntity<?> updateProp(@PathVariable Long id,@RequestBody Proposition prop)
+    public ResponseEntity<?> updateProp(@PathVariable Long id,@RequestBody Proposition prop)
     {
         return propService.updateProp(id,prop);
     }
 
     @GetMapping("/getProp/{id}")
-    private ResponseEntity<?> getProp(@PathVariable Long id)
+    public ResponseEntity<?> getProp(@PathVariable Long id)
     {
         return propService.retrieveById(id);
     }
 
     @GetMapping("/getProps")
-    private ResponseEntity<?> getProps()
+    public ResponseEntity<?> getProps()
     {
         return propService.retrieveAll();
     }
 
     @DeleteMapping("/delProp/{id}")
-    private Boolean delProp(@PathVariable Long id)
+    public Boolean delProp(@PathVariable Long id)
     {
         return propService.delete(id);
     }

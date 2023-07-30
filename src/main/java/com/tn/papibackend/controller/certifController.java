@@ -30,4 +30,14 @@ public class certifController {
     {
         return certifService.delete(id);
     }
+    @PutMapping("/addcertifWithInterest/{idI}")
+    public ResponseEntity<?> addCertifwithInterest(@RequestBody Certification cert,@PathVariable Long idI){
+         certifService.affectCertifToInterest(idI,cert.getId());
+        return certifService.add(cert);
+    }
+    @PutMapping("/addcertifWithInterest/{idI}/{idC}")
+    public ResponseEntity<?> affectCertifToInterest(@PathVariable Long idC,@PathVariable Long idI){
+        return certifService.affectCertifToInterest(idI,idC);
+    }
+
 }

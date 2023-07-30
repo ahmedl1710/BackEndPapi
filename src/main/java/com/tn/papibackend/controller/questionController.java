@@ -15,25 +15,35 @@ public class questionController {
     private IQuestionService questionService;
 
     @PostMapping("/addQuestion")
-    private ResponseEntity<?> addQuest(@RequestBody Question quest){
+    public ResponseEntity<?> addQuest(@RequestBody Question quest){
+        return questionService.add(quest);
+    }
+    @PostMapping("/addQuestion/{idQuizz}")
+    public ResponseEntity<?> addQuestwithQuizz(@RequestBody Question quest,@PathVariable Long idQuizz){
+        questionService.affectQuestionToQuizz(quest.getId(),idQuizz);
         return questionService.add(quest);
     }
     @PutMapping("/updateQuestion/{id}")
-    private ResponseEntity<?> updateQuestion(@RequestBody Question question,@PathVariable Long id)
+    public ResponseEntity<?> updateQuestion(@RequestBody Question question,@PathVariable Long id)
     {
         return questionService.updateQuestion(id,question);
     }
+    @PutMapping("/affectQuestQuizz/{idques}/{idQuizz}")
+    public ResponseEntity<?> affectQuestQuizz(@PathVariable Long idQuest,@PathVariable Long idQuizz)
+    {
+        return questionService.affectQuestionToQuizz(idQuest, idQuizz);
+    }
     @GetMapping("/getQuestion/{id}")
-    private ResponseEntity<?> getQuestion(@PathVariable Long id){
+    public ResponseEntity<?> getQuestion(@PathVariable Long id){
         return questionService.retrieveById(id);
     }
     @GetMapping("/getAllQuestions")
-    private ResponseEntity<?> getQuestions()
+    public ResponseEntity<?> getQuestions()
     {
         return questionService.retrieveAll();
     }
     @DeleteMapping("/delQuest/{id}")
-    private Boolean deleteQuestion(@PathVariable Long id)
+    public Boolean deleteQuestion(@PathVariable Long id)
     {
         return questionService.delete(id);
     }

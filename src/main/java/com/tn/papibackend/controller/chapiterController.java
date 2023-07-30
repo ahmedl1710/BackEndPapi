@@ -42,4 +42,9 @@ public class chapiterController {
     {
         return chapService.affectCChapToCourse(idChap,idCourse);
     }
+    @PostMapping("/addChap/{idCourse}")
+    private ResponseEntity<?> addChapwithCourse(@RequestBody Chapiter chap,@PathVariable Long idCourse)
+    {
+        return chapService.add(chap);
+    }
 }

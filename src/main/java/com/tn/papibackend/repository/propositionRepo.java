@@ -4,4 +4,5 @@ import com.tn.papibackend.entity.Proposition;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface propositionRepo extends JpaRepository<Proposition,Long> {
+    Proposition findByPropAndQuestionId(String prop,Long id);
 }

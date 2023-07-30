@@ -7,5 +7,6 @@ import org.springframework.http.ResponseEntity;
 
 public interface IPropService extends IGenericService<Proposition,Long> {
     ResponseEntity<?> updateProp(Long id, Proposition prop);
+    ResponseEntity<?> affectPropToQuest(Long idP,Long idQ);
 
 }
