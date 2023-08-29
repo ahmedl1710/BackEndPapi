@@ -24,7 +24,7 @@ public class Interest implements Serializable {
     Long id;
     String name;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JsonIgnore
     Set<User> users;
     @OneToMany(mappedBy = "interest",cascade = CascadeType.ALL)

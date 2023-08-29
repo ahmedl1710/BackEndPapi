@@ -1,4 +1,4 @@
-package com.tn.papibackend.payload;
+package com.tn.papibackend.filter.payload;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

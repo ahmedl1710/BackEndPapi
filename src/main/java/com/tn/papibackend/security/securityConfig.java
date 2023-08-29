@@ -36,7 +36,7 @@ public class securityConfig  extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-        http.authorizeRequests().antMatchers("/login").permitAll();
+        http.authorizeRequests().antMatchers("/login","/user/SignUp").permitAll();
         http.authorizeRequests().antMatchers(GET,"/user/allusers").hasAnyAuthority("ROLE_SUPER_ADMIN");
         http.authorizeRequests().antMatchers(DELETE,"/interest/delInterest/**").hasAnyAuthority("ROLE_SUPER_ADMIN");
         //any other authorization need to be before this line

@@ -10,6 +10,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
+import java.util.Set;
+
 
 @Service
 @AllArgsConstructor
@@ -48,6 +51,34 @@ public class CourseServiceImpl extends IGenericServiceImp<Course,Long> implement
             return ResponseEntity.ok(course);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error affecting interst to course");
+        }
+    }
+
+    @Override
+    public ResponseEntity<?> getCoursesByInterest(String Interest) {
+        try{
+            Set<Course> courses = courserep.findByInterestName(Interest);
+            if(courses == null){
+                Set<Course> vide=new HashSet<>();
+                return ResponseEntity.ok(vide);
+            }
+            return ResponseEntity.ok(courses);
+    } catch (Exception e) {
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error retrieving courses");
+    }
+    }
+
+    @Override
+    public ResponseEntity<?> getTrendCourses() {
+        try{
+            Set<Course> courses = courserep.findTop3ByOrderByLikesDesc();
+            if(courses == null){
+                Set<Course> vide=new HashSet<>();
+                return ResponseEntity.ok(vide);
+            }
+            return ResponseEntity.ok(courses);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error retrieving courses");
         }
     }
 }

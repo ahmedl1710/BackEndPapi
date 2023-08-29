@@ -43,4 +43,12 @@ public class courseController {
     {
         return courseService.affectCourseToInterest(idCourse,idInterest);
     }
+    @GetMapping("/getCoursesInt/{interest}")
+    public ResponseEntity<?> getCoursesByInt(@PathVariable String interest){
+        return courseService.getCoursesByInterest(interest);
+    }
+    @GetMapping("/getCoursesTrend")
+    public ResponseEntity<?> getCoursesTrend(){
+        return courseService.getTrendCourses();
+    }
 }

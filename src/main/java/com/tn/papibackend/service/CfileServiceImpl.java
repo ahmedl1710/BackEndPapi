@@ -4,7 +4,7 @@ package com.tn.papibackend.service;
 import com.tn.papibackend.entity.Cfile;
 import com.tn.papibackend.entity.Chapiter;
 import com.tn.papibackend.generic.IGenericServiceImp;
-import com.tn.papibackend.payload.MessageResponse;
+import com.tn.papibackend.filter.payload.MessageResponse;
 import com.tn.papibackend.repository.cfileRepo;
 import com.tn.papibackend.repository.chapiterRepo;
 import lombok.AllArgsConstructor;
@@ -14,10 +14,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
 import java.util.List;
 
 @Service

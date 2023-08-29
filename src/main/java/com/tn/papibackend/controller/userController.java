@@ -12,6 +12,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import javax.xml.ws.Response;
 import java.net.URI;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/user")
 @AllArgsConstructor
@@ -47,6 +48,19 @@ public class userController {
     {
         return userserv.addRoleToUser(form.getUsername(), form.getRolename());
     }
+
+    @GetMapping("/getUserByUsername/{username}")
+    public ResponseEntity<?> getUserbyUn(@PathVariable String username){
+        return userserv.getUserUsername(username);
+    }
+
+    @DeleteMapping("/deleteUser/{id}")
+    private ResponseEntity<?>  delinterest(@PathVariable Long id)
+    {
+        return userserv.supprimerUser(id);
+    }
+
+
 }
 
 @Data

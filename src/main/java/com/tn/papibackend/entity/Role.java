@@ -7,6 +7,10 @@ import lombok.experimental.FieldDefaults;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import java.util.HashSet;
+import java.util.Set;
 
 import static javax.persistence.GenerationType.*;
 
@@ -22,4 +26,5 @@ public class Role {
     @GeneratedValue(strategy = IDENTITY)
     Long id;
     String name;
+
 }

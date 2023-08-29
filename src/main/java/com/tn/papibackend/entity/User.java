@@ -32,12 +32,17 @@ public class User implements Serializable {
 
 
     @ManyToMany(fetch = FetchType.EAGER)
-    Collection<Role> roles = new ArrayList<>();
+    Set<Role> roles = new HashSet<>();
+
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "user")
     Set<Quizz> quizzes =new HashSet<>();
+
+    @ManyToMany(mappedBy="users", cascade = CascadeType.ALL)
+    Set<Interest> interests = new HashSet<>();
     @JsonIgnore
     @ManyToMany
-    Set<Interest> interests = new HashSet<>();
+    Set<Course> courses = new HashSet<>();
 
 
 }

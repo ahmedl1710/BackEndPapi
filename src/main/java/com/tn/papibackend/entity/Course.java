@@ -9,6 +9,8 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import static java.lang.Boolean.TRUE;
+
 
 @Entity
 @Getter
@@ -23,13 +25,21 @@ public class Course implements Serializable {
     @Setter(AccessLevel.NONE)
     Long id;
     String title;
-    String source;
-    Boolean accesslevel = true;
+    Boolean accesslevel = TRUE;
+    String description;
+    Integer likes;
+    Integer dislikes;
+    String Price;
 
     @ManyToOne
-
     Interest interest;
+
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "course")
     Set<Chapiter> chapiters = new HashSet<>();
 
+    @ManyToOne
+    User source;
+
+    @ManyToMany
+    Set<User> students=new HashSet<>();
 }

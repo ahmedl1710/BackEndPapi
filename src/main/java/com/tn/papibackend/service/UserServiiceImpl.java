@@ -124,5 +124,28 @@ public class UserServiiceImpl implements userService, UserDetailsService {
         }
     }
 
+    @Override
+    public ResponseEntity<?> getUserUsername(String username) {
+        try {
+            User u = userrep.findByUsername(username);
+            if(u == null ){
+                return ResponseEntity.badRequest().body("user does not exist!!!!!!");
+            }
+            return ResponseEntity.ok(u);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error retreving user");
+        }
+    }
+    @Override
+    public ResponseEntity<?> supprimerUser(Long id) {
+        try {
+            User us = userrep.findById(id).orElse(null);
+            userrep.delete(us);
+            return ResponseEntity.ok(us + "deleted");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error deleting user");
+        }
+    }
+
 
 }

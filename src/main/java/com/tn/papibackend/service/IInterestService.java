@@ -7,4 +7,5 @@ import org.springframework.http.ResponseEntity;
 public interface IInterestService extends IGenericService<Interest,Long> {
 
     ResponseEntity<?> updateInyterest(Long id, Interest interest);
+    ResponseEntity<?>  supprimerInteret(Long id);
 }

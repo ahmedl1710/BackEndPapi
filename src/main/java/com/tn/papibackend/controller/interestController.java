@@ -34,8 +34,8 @@ public class interestController {
         return interestService.retrieveAll();
     }
     @DeleteMapping("/delInterest/{id}")
-    private Boolean delinterest(@PathVariable Long id)
+    private ResponseEntity<?>  delinterest(@PathVariable Long id)
     {
-        return interestService.delete(id);
+        return interestService.supprimerInteret(id);
     }
 }

@@ -12,4 +12,7 @@ public interface userService {
     ResponseEntity<?> getUser(String username);
     ResponseEntity<?> getAllUsers();
     ResponseEntity<?> getAllRoles();
+    ResponseEntity<?> getUserUsername(String username);
+    ResponseEntity<?> supprimerUser(Long id);
+
 }
