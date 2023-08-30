@@ -23,6 +23,13 @@ public class Interest implements Serializable {
     @Setter(AccessLevel.NONE)
     Long id;
     String name;
+    @Transient
+    Integer usersLength;
+    @Transient
+    Integer coursesLength;
+    @Transient
+    Integer certifsLength;
+
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JsonIgnore

@@ -147,5 +147,17 @@ public class UserServiiceImpl implements userService, UserDetailsService {
         }
     }
 
+    @Override
+    public ResponseEntity<?> findUsersByRole(String roleName) {
+
+            try {
+
+                List<User> users = userrep.findUsersByRoleName(roleName);
+                return ResponseEntity.ok(users);
+            } catch (Exception e) {
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error retrieving users");
+            }
+        }
+
 
 }

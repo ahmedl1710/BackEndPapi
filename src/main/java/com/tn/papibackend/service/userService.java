@@ -14,5 +14,7 @@ public interface userService {
     ResponseEntity<?> getAllRoles();
     ResponseEntity<?> getUserUsername(String username);
     ResponseEntity<?> supprimerUser(Long id);
+    ResponseEntity<?> findUsersByRole(String roleName);
+
 
 }
