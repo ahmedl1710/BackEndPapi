@@ -51,4 +51,8 @@ public class courseController {
     public ResponseEntity<?> getCoursesTrend(){
         return courseService.getTrendCourses();
     }
+    @GetMapping("/getUserCourses/{username}")
+    public ResponseEntity<?> UserCourses(@PathVariable String username){
+        return courseService.getUserCourses(username);
+    }
 }

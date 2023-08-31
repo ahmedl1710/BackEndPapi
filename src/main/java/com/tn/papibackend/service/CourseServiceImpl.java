@@ -81,5 +81,19 @@ public class CourseServiceImpl extends IGenericServiceImp<Course,Long> implement
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error retrieving courses");
         }
     }
+
+    @Override
+    public ResponseEntity<?> getUserCourses(String username) {
+        try{
+            Set<Course> courses = courserep.findBySourceUsername(username);
+            if(courses == null){
+                Set<Course> vide=new HashSet<>();
+                return ResponseEntity.ok(vide);
+            }
+            return ResponseEntity.ok(courses);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error retrieving courses");
+        }
+    }
 }
 

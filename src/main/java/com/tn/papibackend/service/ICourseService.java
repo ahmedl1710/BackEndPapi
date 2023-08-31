@@ -10,6 +10,7 @@ public interface ICourseService extends IGenericService<Course,Long> {
     ResponseEntity<?> affectCourseToInterest(Long idCourse,Long idInt);
     ResponseEntity<?> getCoursesByInterest(String Interest);
     ResponseEntity<?> getTrendCourses();
+    ResponseEntity<?> getUserCourses(String username);
 
 
 

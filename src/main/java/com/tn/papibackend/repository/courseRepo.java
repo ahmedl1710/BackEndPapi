@@ -10,4 +10,5 @@ public interface courseRepo  extends JpaRepository<Course,Long> {
     Course findByTitle(String title);
     Set<Course> findByInterestName(String interest);
     Set<Course> findTop3ByOrderByLikesDesc();
+    Set<Course> findBySourceUsername(String username);
 }
